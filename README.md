@@ -55,9 +55,9 @@ app.use((ctx, next) => {
   });
 });
 ```
-## 📝 Routes
+## 📝 Methods
 
-### get method
+### `get` method
 
 `ctx.body` is used to return the body response to the client.
 
@@ -67,7 +67,7 @@ app.get('/hello', middleware, ctx => {
 });
 ```
 
-### delete method
+### `delete` method
 
 `ctx.params.userId` is the parameter find in the query url.  
 
@@ -77,7 +77,7 @@ app.delete('/users/:userId', middleware, ctx => {
 });
 ```
 
-### post method
+### `post` method
 
 `ctx.request.body` is the request body sent by the client.  
 
@@ -87,7 +87,7 @@ app.post('/users', middleware, ctx => {
 });
 ```
 
-### put method
+### `put` method
 
 `ctx.status` and `ctx.errorMessage` are return in the response field.  
 
@@ -101,7 +101,7 @@ app.put('/users/:userId', middleware, ctx => {
 });
 ```
 
-### any method
+### `any` method
 
 Register `/default` in all the methods.  
 
