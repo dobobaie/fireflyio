@@ -1,48 +1,50 @@
 const io = require('socket.io-client');
 const Fireflyio = require('../lib');
+const FireflyioClient = require('../../fireflyio-client/lib');
 
 (async () => {
   // ---
   const fireflyio = new Fireflyio();
   
   fireflyio
-    .post('/default', ctx => {
-      console.log('/default', ctx);
+    .delete('/users/:id/delete', ctx => {
+      console.log('/users/:id/delete', ctx);
+      ctx.body = {
+        result: true
+      };
     })
-    .get('/', ctx => {
-      console.log('/', ctx);
+    .post('/login', ctx => {
+      console.log('/login', ctx);
+      ctx.body = {
+        result: true
+      };
+    })
+    .get('/hello', ctx => {
+      console.log('/hello', ctx);
+      ctx.body = {
+        message: 'Hello'
+      };
     });
 
   await fireflyio.listen(2525);
   // ---
 
-  const socket = io('http://localhost:2525/');
-
-  socket.on('connect', () => {
-    console.log('io: connect');
+  // ---
+  const fireflyioClient = new FireflyioClient('http://localhost:2525/');
   
-    socket.emit('POST', {
-      location: '/default',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: {
-        username: 'Toot'
-      }
-    });
+  fireflyioClient.delete('/users/toto/delete').then(response =>
+    console.log('delete /users/toto/delete response', response)
+  ).catch(err => console.log('error delete /users/toto/delete', err));
 
-    socket.emit('GET', {
-      location: '/',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: {
-        username: 'Toot'
-      }
-    });
-  });
+  fireflyioClient.get('/hello').then(response =>
+    console.log('get /hello response', response)
+  ).catch(err => console.log('error get /hello', err));
 
-  socket.on('disconnect', () => {
-    console.log('io: disconnect');
-  });
+  fireflyioClient.post('/login', {
+    username: 'Toto',
+    password: 'Tutu'
+  }).then(response =>
+    console.log('post /login response', response)
+  ).catch(err => console.log('error post /login', err));
+  // ---
 })();
