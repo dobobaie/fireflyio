@@ -1,4 +1,3 @@
-const io = require('socket.io-client');
 const Fireflyio = require('../lib');
 const FireflyioClient = require('../../fireflyio-client/lib');
 

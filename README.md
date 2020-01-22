@@ -113,7 +113,7 @@ app.any('/default', middleware, ctx => {
 
 ## 💻 Modules extension
 
-### `extend` 
+### `extend(module: any, options: object)` 
 
 Add the module in `fireflyio`.  
 
@@ -122,7 +122,9 @@ const Fireflyio = require('fireflyio');
 const FireflyioMonitoring = require('fireflyio-monitoring');
 
 const app = new Fireflyio();
-app.extend(FireflyioMonitoring);
+
+const options = {};
+app.extend(FireflyioMonitoring, options);
 
 // ...
 ```
