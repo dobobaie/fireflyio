@@ -111,6 +111,22 @@ app.any('/default', middleware, ctx => {
 });
 ```
 
+## 💻 Modules extension
+
+### `extend` 
+
+Add the module in `fireflyio`.  
+
+```js
+const Fireflyio = require('fireflyio');
+const FireflyioMonitoring = require('fireflyio-monitoring');
+
+const app = new Fireflyio();
+app.extend(FireflyioMonitoring);
+
+// ...
+```
+
 ## ⚙️ Options 
 
 `const app = new Fireflyio(options: object);`   

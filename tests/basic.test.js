@@ -5,7 +5,7 @@ const FireflyioClient = require('../../fireflyio-client/lib');
 (async () => {
   // ---
   const app = new Fireflyio({ debug: true });
-  
+
   app.use(async (ctx, next) => {
     const start = Date.now();
     await next();
