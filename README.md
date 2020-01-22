@@ -111,6 +111,17 @@ app.any('/default', middleware, ctx => {
 });
 ```
 
+## ⚙️ Options 
+
+`const app = new Fireflyio(options: object);`   
+
+Name parameter | Type | Default | Description
+--- | --- | --- | ---
+debug | `boolean` | `false` | Enable debug mode
+https | `boolean` | `false` | Enable HTTPS mode
+server | `object` | `undefined` | [HTTP](https://nodejs.org/api/http.html#http_http_createserver_options_requestlistener) or [HTTPS](https://nodejs.org/api/https.html#https_https_createserver_options_requestlistener) configuration
+socket | `object` | `undefined` | [Socket.io](https://www.npmjs.com/package/socket.io) configuration
+
 ## 👥 Contributing
 
 Please help us to improve the project by contributing :)  

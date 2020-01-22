@@ -4,7 +4,7 @@ const FireflyioClient = require('../../fireflyio-client/lib');
 
 (async () => {
   // ---
-  const app = new Fireflyio();
+  const app = new Fireflyio({ debug: true });
   
   app.use(async (ctx, next) => {
     const start = Date.now();
@@ -12,7 +12,7 @@ const FireflyioClient = require('../../fireflyio-client/lib');
     const ms = Date.now() - start;
     console.log(`${ctx.method} ${ctx.url} - ${ms}ms`);
   });
-  
+
   app
     .delete('/users/:id/delete', ctx => {
       console.log('/users/:id/delete', ctx);
@@ -37,7 +37,10 @@ const FireflyioClient = require('../../fireflyio-client/lib');
   // ---
 
   // ---
-  const fireflyioClient = new FireflyioClient('http://localhost:2525/');
+  const fireflyioClient = new FireflyioClient('http://localhost:2525/', {
+    debug: true,
+    timeout: 5000
+  });
   
   fireflyioClient.delete('/users/toto/delete').then(response =>
     console.log('delete /users/toto/delete response', response)
