@@ -1,11 +1,14 @@
 # [BETA] fireflyio
+
 Expressive Socket middleware framework for node.js to make web applications and APIs like a real HTTP middleware framework.
 
 ## 🚀 Fireflyio
 
 [Fireflyio server](https://github.com/dobobaie/fireflyio)  
 [Fireflyio client](https://github.com/dobobaie/fireflyio-client)  
+[Fireflyio module router](https://github.com/dobobaie/fireflyio-router)  
 [Fireflyio module monitoring](https://github.com/dobobaie/fireflyio-monitoring)  
+[Fireflyio module ui-monitoring](https://github.com/dobobaie/fireflyio-ui-monitoring)  
 
 ## ☁️ Installation
 

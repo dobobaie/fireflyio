@@ -1,5 +1,5 @@
 {
-  "name": "firefly-io",
+  "name": "fireflyio-router",
   "version": "0.0.1",
   "description": "Rest API from Socket.IO",
   "main": "lib/index.js",

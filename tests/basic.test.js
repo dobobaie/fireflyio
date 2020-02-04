@@ -1,9 +1,12 @@
-const Fireflyio = require('../lib');
+const Fireflyio = require('../../fireflyio/lib');
 const FireflyioClient = require('../../fireflyio-client/lib');
+const FireflyioRouter = require('../../fireflyio-router/lib');
 
 (async () => {
   // ---
   const app = new Fireflyio({ debug: true });
+  
+  app.extend(FireflyioRouter);
 
   app.use(async (ctx, next) => {
     const start = Date.now();
@@ -13,12 +16,15 @@ const FireflyioClient = require('../../fireflyio-client/lib');
   });
 
   app
-    .delete('/users/:id/delete', ctx => {
-      console.log('/users/:id/delete', ctx);
-      ctx.body = {
-        result: true
-      };
-    })
+    .router
+    .focus('/users', router =>
+      router.delete('/:id/delete', ctx => {
+        console.log('/users/:id/delete', ctx);
+        ctx.body = {
+          result: true
+        };
+      })
+    )
     .post('/login', ctx => {
       console.log('/login', ctx);
       ctx.body = {
