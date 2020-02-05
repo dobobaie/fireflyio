@@ -68,6 +68,10 @@ const FireflyioRouter = require('../../fireflyio-router/lib');
     timeout: 5000
   });
 
+  fireflyioClient.socket.on('CHAT_NEW_MESSAGE', response => {
+    console.log('CHAT_NEW_MESSAGE', response);
+  });
+
   fireflyioClient.get('/').then(response => {
     console.log('get', response);
   });
@@ -75,5 +79,4 @@ const FireflyioRouter = require('../../fireflyio-router/lib');
   fireflyioClient.get('/health').then(response => {
     console.log('get', response);
   });
-
 })();

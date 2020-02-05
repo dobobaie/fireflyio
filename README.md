@@ -64,62 +64,6 @@ app.use((ctx, next) => {
   });
 });
 ```
-## 📝 Methods
-
-### `get` method
-
-`ctx.body` is used to return the body response to the client.
-
-```js
-app.get('/hello', middleware, ctx => {
-  ctx.body = 'hello'; // return body
-});
-```
-
-### `delete` method
-
-`ctx.params.userId` is the parameter find in the query url.  
-
-```js
-app.delete('/users/:userId', middleware, ctx => {
-  ctx.body = `User ${ctx.params.userId} has been deleted`; // return body
-});
-```
-
-### `post` method
-
-`ctx.request.body` is the request body sent by the client.  
-
-```js
-app.post('/users', middleware, ctx => {
-  ctx.body = `User ${ctx.request.body.username} has been added`;
-});
-```
-
-### `put` method
-
-`ctx.status` and `ctx.errorMessage` are return in the response field.  
-
-```js
-app.put('/users/:userId', middleware, ctx => {
-  ctx.body = {
-    error: 'User not found'
-  };
-  ctx.status = 404;
-  ctx.errorMessage = 'User not found'; // same that body way but in response field
-});
-```
-
-### `any` method
-
-Register `/default` in all the methods.  
-
-```js
-app.any('/default', middleware, ctx => {
-  ctx.body = 'hello'; // return body
-});
-```
-
 ## 💻 Modules extension
 
 ### `extend(module: any, options: object)` 
@@ -137,6 +81,30 @@ app.extend(FireflyioMonitoring, options);
 
 // ...
 ```
+
+## 📝 Socket
+
+### How it works ?
+
+The module works like a real REST API but the communication is via the socket protocol.   
+
+### `app.socket` 
+
+`app.socket` give you more control about the native socket.
+
+### `app.socket.on(event: string, callback: Function)`
+
+All the events available is bellow :   
+
+Name event | Description
+--- | ---
+ready | Called when the socket server is ready
+newClientConnection | Called for each new client connection
+clientDisconnected | Called for each disconnect client
+
+### `app.socket.diffuse(event: string, data: any)`
+
+Emit the specific event for each clients.  
 
 ## ⚙️ Options 
 
