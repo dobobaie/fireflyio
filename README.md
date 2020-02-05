@@ -99,8 +99,9 @@ All the events available is bellow :
 Name event | Description
 --- | ---
 ready | Called when the socket server is ready
-newClientConnection | Called for each new client connection
+clientConnected | Called for each new client connection
 clientDisconnected | Called for each disconnect client
+clientAuthenticated | Called for each new authentication
 
 ### `app.socket.diffuse(event: string, data: any)`
 
