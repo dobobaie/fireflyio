@@ -114,8 +114,9 @@ Emit the specific event for each clients.
 Name parameter | Type | Default | Description
 --- | --- | --- | ---
 debug | `boolean` | `false` | Enable debug mode
-https | `boolean` | `false` | Enable HTTPS mode (same as `ssl`)
-ssl | `boolean` | `false` | Enable SSL mode (same as `https`)
+secure | `boolean` | `false` | Enable Secure mode
+https | `boolean` | `false` | Enable HTTPS mode (same as `secure`)
+ssl | `boolean` | `false` | Enable SSL mode (same as `secure`)
 allowedHttpRequests | `boolean` | `false` | Allow HTTP(S) requests in the same way that socket requests
 blackListHttpRequests | `Array<route: string>` | `[]` | Deny HTTP(S) requests only for those routes
 whiteListHttpRequests | `Array<route: string>` | `[]` | Allow HTTP(S) requests only for those routes
